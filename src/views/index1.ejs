@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>First Node Project</title>
+    <% include partials/head %>
+  </head>
+  <body>
+
+    <!-- HEADER -->
+    <% include partials/navigation %>
+
+    <!-- MAIN CONTENT -->
+
+    <div class="container">
+      <header class="row">
+        <div class="col-lg-12 text-center">
+          <img src="/img/pews-logo.png" class="w-auto animated bounceIn" alt="Website Logo">
+        </div>
+      </header>
+    </div>
+
+    <!-- section one -->
+    <div class="container-fluid" id="about">
+      <div class="row bg-dark text-white p-5 text-center">
+        <div class="col-sm-6">
+          <i class="fab fa-youtube fa-10x"></i>  
+        </div>
+        <div class="col-sm-6">
+          <h3>The most subscribed Youtuber</h3>
+          <p>
+            <span>Elit exercitationem id illo sit distinctio. Deserunt ut debitis voluptates mollitia dignissimos eligendi vel quidem itaque dolores ratione ut. Soluta accusantium dolor nemo suscipit rerum. Aliquid quasi excepturi provident eos.</span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <% include partials/footer %>
+
+    <!-- JAVASCRIPT CDNS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+  </body>
+</html>
+
+
+
+
+<div class="container ng-scope" ng-app="sortApp" ng-controller="mainController">
+
+
+  <form class="ng-pristine ng-valid">
+      <div class="form-group">
+          <div class="input-group">
+              <div class="input-group-addon"><i class="fa fa-search"></i></div>
+              <input type="text" class="form-control ng-pristine ng-untouched ng-valid"
+                  placeholder="Search da Fish" ng-model="searchFish">
+          </div>
+      </div>
+  </form>
+
+  <table class="table table-bordered table-striped">
+
+      <thead>
+          <tr>
+              <td>
+                  <a href="#" ng-click="sortType = 'name'; sortReverse = !sortReverse">
+                      Capítulo
+                      <span ng-show="sortType == 'name' &amp;&amp; !sortReverse" class="fa fa-caret-down"></span>
+                      <span ng-show="sortType == 'name' &amp;&amp; sortReverse"
+                          class="fa fa-caret-up ng-hide"></span>
+                  </a>
+              </td>
+              <td>
+                  <a href="#" ng-click="sortType = 'fish'; sortReverse = !sortReverse">
+                      Nombre
+                      <span ng-show="sortType == 'fish' &amp;&amp; !sortReverse"
+                          class="fa fa-caret-down ng-hide"></span>
+                      <span ng-show="sortType == 'fish' &amp;&amp; sortReverse"
+                          class="fa fa-caret-up ng-hide"></span>
+                  </a>
+              </td>
+              <td>
+                  <a href="#" ng-click="sortType = 'tastiness'; sortReverse = !sortReverse">
+                      Número
+                      <span ng-show="sortType == 'tastiness' &amp;&amp; !sortReverse"
+                          class="fa fa-caret-down ng-hide"></span>
+                      <span ng-show="sortType == 'tastiness' &amp;&amp; sortReverse"
+                          class="fa fa-caret-up ng-hide"></span>
+                  </a>
+              </td>
+          </tr>
+      </thead>
+
+      <tbody>
+          <!-- ngRepeat: roll in sushi | orderBy:sortType:sortReverse | filter:searchFish -->
+          <tr ng-repeat="roll in sushi | orderBy:sortType:sortReverse | filter:searchFish" class="ng-scope">
+              <td class="ng-binding"><a href="http://" target="_blank" rel="noopener noreferrer">Capitulo 1</a></td>
+              <td class="ng-binding">yeimy</td>
+              <td class="ng-binding">2</td>
+          </tr><!-- end ngRepeat: roll in sushi | orderBy:sortType:sortReverse | filter:searchFish -->
+          <tr ng-repeat="roll in sushi | orderBy:sortType:sortReverse | filter:searchFish" class="ng-scope">
+              <td class="ng-binding">Philly</td>
+              <td class="ng-binding">Tuna</td>
+              <td class="ng-binding">4</td>
+          </tr><!-- end ngRepeat: roll in sushi | orderBy:sortType:sortReverse | filter:searchFish -->
+          <tr ng-repeat="roll in sushi | orderBy:sortType:sortReverse | filter:searchFish" class="ng-scope">
+              <td class="ng-binding">Rainbow</td>
+              <td class="ng-binding">Variety</td>
+              <td class="ng-binding">6</td>
+          </tr><!-- end ngRepeat: roll in sushi | orderBy:sortType:sortReverse | filter:searchFish -->
+          <tr ng-repeat="roll in sushi | orderBy:sortType:sortReverse | filter:searchFish" class="ng-scope">
+              <td class="ng-binding">Tiger</td>
+              <td class="ng-binding">Eel</td>
+              <td class="ng-binding">7</td>
+          </tr><!-- end ngRepeat: roll in sushi | orderBy:sortType:sortReverse | filter:searchFish -->
+      </tbody>
+
+  </table>
+
+  <p class="text-center text-muted">
+      <a href="#" target="_blank">Read the Tutorial</a>
+  </p>
+
+  <p class="text-center">
+      by <a href="https://scotch.io" target="_blank">scotch.io</a>
+  </p>
+
+</div>
+
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script> -->
+<script src="js/angular.min.js"></script>
+<script>
+  angular.module('sortApp', []).
+
+      controller('mainController', function ($scope) {
+          $scope.sortType = 'name'; // set the default sort type
+          $scope.sortReverse = false; // set the default sort order
+          $scope.searchFish = ''; // set the default search/filter term
+
+          // create the list of sushi rolls 
+          $scope.sushi = [
+              { name: 'capitulo 1', fish: 'yeimy', tastiness: 2 },
+              { name: 'Philly', fish: 'Tuna', tastiness: 4 },
+              { name: 'Tiger', fish: 'Eel', tastiness: 7 },
+              { name: 'Rainbow', fish: 'Variety', tastiness: 6 }];
+
+
+      });
+//# sourceURL=pen.js
+</script>
+  </div>
